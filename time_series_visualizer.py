@@ -5,10 +5,13 @@ from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
 
 # Import data (Make sure to parse dates. Consider setting index column to 'date'.)
-df = None
+df = pd.read_csv("fcc-forum-pageviews.csv").set_index('date')
+print(df)
+
 
 # Clean data
 df = None
+
 
 def draw_line_plot():
     # Draw line plot
@@ -35,6 +38,7 @@ def draw_box_plot():
     df_box['month'] = [d.strftime('%b') for d in df_box.date]
 
     # Draw box plots (using Seaborn)
+
 
     # Save image and return fig (don't change this part)
     fig.savefig('box_plot.png')
