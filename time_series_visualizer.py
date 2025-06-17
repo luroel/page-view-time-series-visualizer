@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from numpy import fix
 import pandas as pd
 import seaborn as sns
 from pandas.plotting import register_matplotlib_converters
@@ -16,7 +17,12 @@ df = df[
 
 def draw_line_plot():
     # Draw line plot
-
+    fig, ax = plt.subplots(figsize=(15,5))
+    ax.plot(df.index, df['value'], color='red')
+    plt.xlabel("Date")
+    plt.ylabel("Page Views")
+    plt.title("Daily freeCodeCamp Page Views")
+    
     # Save image and return fig (don't change this part)
     fig.savefig('line_plot.png')
     return fig
@@ -44,3 +50,5 @@ def draw_box_plot():
     # Save image and return fig (don't change this part)
     fig.savefig('box_plot.png')
     return fig
+
+draw_line_plot()
