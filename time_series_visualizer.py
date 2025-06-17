@@ -21,7 +21,7 @@ def draw_line_plot():
     ax.plot(df.index, df['value'], color='red')
     plt.xlabel("Date")
     plt.ylabel("Page Views")
-    plt.title("Daily freeCodeCamp Page Views")
+    plt.title("Daily freeCodeCamp Page Views 5/2016-12/2019")
     
     # Save image and return fig (don't change this part)
     fig.savefig('line_plot.png')
