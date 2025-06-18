@@ -44,18 +44,23 @@ def draw_bar_plot():
     return fig
 
 def draw_box_plot():
-    # Prepare data for box plots (this part is done!)
+    # Prepare data for box plots
     df_box = df.copy()
     df_box.reset_index(inplace=True)
     df_box['year'] = [d.year for d in df_box.date]
     df_box['month'] = [d.strftime('%b') for d in df_box.date]
 
     # Draw box plots (using Seaborn)
-
+    print(df_box)  #Long-form
+    #Create figure and subplots
+    fig,axes = plt.subplots(nrows=1, ncols=2, figsize=(16, 4))
+    # boxplots
+    sns.boxplot(data=df_box, x='year', y='value', ax=axes[0])
+    sns.boxplot(data=df_box, x='month', y='value', ax=axes[1])
+    
 
     # Save image and return fig (don't change this part)
     fig.savefig('box_plot.png')
     return fig
 
-draw_line_plot()
-draw_bar_plot()
+draw_box_plot()
